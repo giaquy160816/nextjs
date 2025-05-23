@@ -1,4 +1,4 @@
-import { LayoutDashboard, Layers, FileText, BookOpen, ImageIcon, Mail, UserPlus } from "lucide-react";
+import { LayoutDashboard, Layers, FileText, ImageIcon, Mail, UserPlus } from "lucide-react";
 
 export const sidebarMenus = [
     {

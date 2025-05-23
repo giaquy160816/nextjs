@@ -14,11 +14,7 @@ export default function NotFoundPage() {
             </Link>
 
             <div className="mt-10 w-[320px] md:w-[500px]">
-                <img
-                    src="/images/404-illustration.svg" // bạn có thể dùng ảnh minh hoạ SVG hoặc PNG tại public/
-                    alt="Not Found Illustration"
-                    className="w-full object-contain"
-                />
+                hinh 404
             </div>
         </div>
     )
