@@ -1,24 +1,26 @@
 // app/product/[slug]/page.tsx
 import { Metadata } from "next";
 
+type Props = {
+    params: Promise<{ slug: string }>
+    searchParams: Promise<{ [key: string]: string | string[] | undefined }>
+}
+
 export async function generateMetadata({
     params,
-}: {
-    params: { slug: string };
-}): Promise<Metadata> {
+}: Props): Promise<Metadata> {
+    const { slug } = await params
     return {
-        title: `Slug: ${params.slug}`,
+        title: `Slug: ${slug}`,
     };
 }
 
-export default async function Page({
-    params,
-}: {
-    params: { slug: string };
-}) {
+
+export default async function Page({ params }: Props) {
+    const { slug } = await params
     return (
         <div>
-            <h1>Chi tiết sản phẩm: {params.slug}</h1>
+            <h1>Chi tiết sản phẩm: {slug}</h1>
         </div>
     );
 }
