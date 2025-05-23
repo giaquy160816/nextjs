@@ -1,12 +1,12 @@
+// app/product/[slug]/page.tsx
 import { Metadata } from "next";
 import { getProductBySlug } from "@/lib/data";
 
-type Props = {
+export async function generateMetadata({
+    params,
+}: {
     params: { slug: string };
-};
-
-// ✅ Hàm này chạy trên server để tạo <title>, <meta> động
-export async function generateMetadata({ params }: Props): Promise<Metadata> {
+}): Promise<Metadata> {
     const product = await getProductBySlug(params.slug);
 
     return {
@@ -26,8 +26,11 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     };
 }
 
-// ✅ Trang hiển thị chi tiết
-export default async function ProductPage({ params }: Props) {
+export default async function ProductPage({
+    params,
+}: {
+    params: { slug: string };
+}) {
     const product = await getProductBySlug(params.slug);
 
     return (

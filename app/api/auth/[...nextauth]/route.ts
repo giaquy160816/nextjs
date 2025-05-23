@@ -16,7 +16,7 @@ const handler = NextAuth({
             return token;
         },
         async session({ session, token }) {
-            session.accessToken = token.accessToken;
+            session.accessToken = token.accessToken as string;
             return session;
         },
     },
@@ -25,4 +25,4 @@ const handler = NextAuth({
     },
 });
 
-export { handler as GET, handler as POST }; 
+export { handler as GET, handler as POST };
